@@ -1,5 +1,6 @@
 const valor = 'Global'
 
+//a função pegará o valor do contexto onde ela foi declarada não da onde ela foi chamada
 function minhaFuncao() {
     console.log(valor)
 }
@@ -9,4 +10,4 @@ function exec(){
     minhaFuncao()
 }
 
-exec()
+exec()// chamará o valor 'Global'
