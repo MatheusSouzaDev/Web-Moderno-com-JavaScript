@@ -21,5 +21,5 @@ console.log(sobrenome, bemHumorada);
 const { endereco: {logradouro, numero, cep } } = pessoa;
 console.log(logradouro, numero, cep);
 
-const { conta: { ag, num } } = pessoa; // Erro
-console.log(ag, num);
+//const { conta: { ag, num } } = pessoa; // Erro
+//console.log(ag, num);
