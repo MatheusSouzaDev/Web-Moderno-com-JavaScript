@@ -23,7 +23,7 @@ obj3.nome = 'Obj3'
 obj3.falar()
 
 // Resumindo 
-console.log((new MeuObjeto).__proto__ === MeuObjeto.prototype)
-console.log(MeuObjeto.__proto__ === Function.prototype)
-console.log(Function.prototype.__proto__ === Object.prototype)
-console.log(Object.prototype.__proto__ === null) // último prototype
+console.log((new MeuObjeto).__proto__ === MeuObjeto.prototype) // Uma nova instância possui o prototype do MeuObjeto.prototype
+console.log(MeuObjeto.__proto__ === Function.prototype) // A função do MeuObjeto posso o Function.prototype
+console.log(Function.prototype.__proto__ === Object.prototype) // O prototype da função é um Object.prototype
+console.log(Object.prototype.__proto__ === null) // Object.prototype é o último de todos
