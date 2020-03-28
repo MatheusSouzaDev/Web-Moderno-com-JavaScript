@@ -49,6 +49,28 @@
     </form>
 
     <script>
-        // ...
+		// evitar seletores complexos, sempre priorizar selecionar o elemento específico
+		$('#feira').addClass('destaque').removeClass('destaque')
+		$('li').addClass('destaque')
+		$('[wm-obrigatorio]').removeClass('destaque')
+		$('li.opcional').removeClass('destaque')
+		$('div p span').addClass('destaque')
+
+		// Exclusivos do jQuery
+		$('li:first').css('border', 'solid 3px yellow')
+		$('li:odd').css('border', 'solid 10px orange')
+		// greater then > maior que 
+		$('li:gt(1)').css('border', 'solid 10px white')
+		// não seja o último
+		$('li:not(:last)').css('border', 'none')
+		// contains filtra qual elemento tem determinado parâmetro
+		$('li:contains("r")').css('background-color', 'black')
+
+		// Formulário
+		$('form *').hide()
+		$('form :text').show()
+		$('form :password').show()
+		$('form :checkbox').show()
+		$('form :file').show()
     </script>
 </body>
