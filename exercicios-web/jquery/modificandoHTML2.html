@@ -17,6 +17,39 @@
     <p class='numero'>5</p>
 
     <script>
-        // ...
+        $('#div1').append(', 2') // depois
+        $('#div1').prepend('0, ') // antes
+
+        // indicar qual elemento vai receber o append
+        $('<span>, 3</span>').appendTo('#div1')
+        $('<span>-1, </span>').prependTo('#div1')
+
+        // Seletor -> Elemento
+        // Antes do elemento ele vai inserir o que foi passado
+        $('#div2').before('<p>Antes 2</p>')
+        // Depois do elemento ele vai inserir o que foi passado
+        $('#div2').after('<p>Depois 2</p>')
+
+        // Elemento -> Seletor
+        // A mesma coisa com o insertBefore / inserAfter 
+        $('<p>Antes 3</p>').insertBefore('#div3')
+        $('<p>Depois 3</p>').insertAfter('#div3')
+
+        // .wrap() envolve os elementos do seletor em um elemento criado
+        // $('p.numero').wrap('<div>')
+        $('p.numero').wrapAll('<div id="div4">')
+        $('#div4').empty() //limpar
+
+        // múltiplos seletores
+        // .remove() remove o elemento da DOM
+        $('#div3, #div4').prev().remove()
+
+        // Criar um elemento e substituir todos de acordo com o seletor
+        // $('<div>Substituto</div>').replaceAll('body > p')
+        // $('body > p').replaceWith('<div>Substituto</div>')
+        // com função de callback
+        $('body > p').replaceWith(function() {
+            return $('<div>').html($(this).html()).append('!!!')
+        })
     </script>
 </body>
