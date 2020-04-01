@@ -20,6 +20,19 @@
             { nome: 'Julia', nota: 9.7 }
         ]
         
-        // ...
+        // Criar uma tabela com o array de pessoas e colocar na div conteudo
+        //------------------------- Minha solução -----------------//
+        
+        const tabela = $('<table>')
+
+        pessoas.forEach(pessoa => {
+            $('<tr>').append(`<td>${pessoa.nome}</td><td>${pessoa.nota}</td>`).appendTo(tabela)
+        })
+
+        $('#conteudo').append(tabela)
+        
+        //--------------------- Fim Minha solução -----------------//
+        //------------------------- Solução Curso -----------------//
+
     </script>
 </body>
