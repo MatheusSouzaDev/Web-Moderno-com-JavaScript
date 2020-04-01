@@ -11,28 +11,45 @@
 <body class='conteudo exercicio'>
     <h1>Modificando HTML #03</h1>
     <div id='conteudo'></div>
-
+    
     <script>
-        const pessoas = [
-            { nome: 'Ana', nota: 9.1 },
-            { nome: 'Bianca', nota: 8.4 },
-            { nome: 'Carlos', nota: 7.6 },
-            { nome: 'Julia', nota: 9.7 }
-        ]
-        
-        // Criar uma tabela com o array de pessoas e colocar na div conteudo
-        //------------------------- Minha solução -----------------//
-        
-        const tabela = $('<table>')
+        // modo de checar que a DOM está carregada que foge do escopo global
+        // $(document).ready(function() {
+        $(function() { // é a mesma coisa do document ready
+            
+            const alunos = [
+                { nome: 'Ana', nota: 9.1 },
+                { nome: 'Bianca', nota: 8.4 },
+                { nome: 'Carlos', nota: 7.6 },
+                { nome: 'Julia', nota: 9.7 }
+            ]
+            
+            // Criar uma tabela com o array de alunos e colocar na div conteudo
+            //------------------------- Minha solução -----------------//
+            
+            const tabela = $('<table>')
 
-        pessoas.forEach(pessoa => {
-            $('<tr>').append(`<td>${pessoa.nome}</td><td>${pessoa.nota}</td>`).appendTo(tabela)
+            alunos.map(aluno => {
+                $('<tr>').append(`<td>${aluno.nome}</td><td>${aluno.nota}</td>`).appendTo(tabela)
+            })
+
+            $('#conteudo').append(tabela)
+            
+            //--------------------- Fim Minha solução -----------------//
+            //------------------------- Solução Curso -----------------//
+            const linhas = alunos.map(aluno => {
+                const tdNome = $('<td>').html(aluno.nome)
+                const tdNota = $('<td>').html(aluno.nota)
+                // return $('<tr>').append(tdNome).append(tdNota)
+                // return $('<tr>').append([tdNome, tdNota])
+                return $('<tr>').append(tdNome, tdNota)
+            })
+
+            const tabela2 = $('<table>').append(linhas)
+                .css('border', 'solid 5px')
+                
+            $('#conteudo').append(tabela2)
         })
-
-        $('#conteudo').append(tabela)
-        
-        //--------------------- Fim Minha solução -----------------//
-        //------------------------- Solução Curso -----------------//
 
     </script>
 </body>
