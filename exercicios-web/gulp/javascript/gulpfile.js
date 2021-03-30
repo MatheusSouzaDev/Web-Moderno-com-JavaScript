@@ -8,11 +8,11 @@ function transformacaoJS(cb) {
 	return gulp.src('src/**/*.js')
 		.pipe(babel({
 			comments: false,
-			presets: ['env']
+			presets: ['env'] // pega a versão mais recente do js
 		}))
-		.pipe(uglify())
+		.pipe(uglify()) // formata o js em uma linha
 		.on('error', err => console.log(err))
-		.pipe(concat('codigo.min.js'))
+		.pipe(concat('codigo.min.js')) // pega o código gerado em um arquivo
 		.pipe(gulp.dest('build'))
 }
 
