@@ -9,12 +9,30 @@
 </head>
 
 <body class='conteudo exercicio'>
-    <h1>Manipulando CSS</h1>
-    <div id='div1'>1</div>
-    <div id='div2'>2</div>
-    <div id='div3'>3</div>
-    <div id='resultado'></div>
-    <script>
-        // ...
-    </script>
+<h1>Manipulando CSS</h1>
+<div id='div1'>1</div>
+<div id='div2'>2</div>
+<div id='resultado'></div>
+<script>
+    // forma de pegar a fonte utilizada no css
+    const fonte = $('#div1').css('font-family')
+    $('#resultado').append(`Fonte é ${fonte}`)
+
+    $('#div1').css('font-size', '3em') // acesso direto
+    $('#div1').css({'font-size': '3.5em', 'color': 'yellow'}) // acesso por objeto
+    $('#div1').css('font-size', function () {
+        return `${2 * 2}em`
+    }) // por função
+
+    $('#div2').addClass('destaque')
+
+    const temClasse = $('#div2').hasClass('destaque')
+    $('#resultado').append(`<br>Tem class? ${temClasse}`)
+
+    $('#div2').removeClass('destaque')
+    // toggleClass => faz o inverso se tem coloca senão remove
+    $('#div2').toggleClass('destaque')
+    $('#div2').toggleClass('destaque')
+
+</script>
 </body>
