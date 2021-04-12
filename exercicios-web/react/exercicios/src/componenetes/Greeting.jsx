@@ -7,6 +7,13 @@ export default class Greeting extends Component {
     name: this.props.name,
   };
 
+  constructor(props) {
+    super(props);
+
+    // Apontar para que a função aponte o this do componente atual
+    this.setType = this.setType.bind(this);
+  }
+
   setType(e) {
     // let i = 1;
     // setInterval(() => this.setState({ type: ++i }), 1000);
@@ -30,7 +37,7 @@ export default class Greeting extends Component {
           type="text"
           placeholder="Tipo..."
           value={type}
-          onChange={(e) => this.setType(e)}
+          onChange={this.setType}
         />
         <input
           type="text"
