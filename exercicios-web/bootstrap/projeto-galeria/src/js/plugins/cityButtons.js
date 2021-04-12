@@ -1,6 +1,7 @@
 import $ from 'jquery'
+import { onLoadHtmlSuccess } from '../core/includes'
 
-const duration = 600
+const duration = 150
 
 // Função que filtra as fotos da galeria pela cidade passada
 // Caso não tenha cidade exibirá todas imagens
@@ -49,4 +50,5 @@ $.fn.cityButtons = function () {
     return this
 }
 
-$('[wm-city-buttons]').cityButtons()
+onLoadHtmlSuccess(() => $('[wm-city-buttons]').cityButtons())
+
