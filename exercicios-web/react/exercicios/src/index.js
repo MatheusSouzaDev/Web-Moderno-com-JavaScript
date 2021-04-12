@@ -2,6 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 // import First from './componenetes/First'
-import GoodMorning from './componenetes/GoodMorning'
+// import GoodMorning from './componenetes/GoodMorning'
+import Multi, { GoodNight} from './componenetes/Multiples'
 
-ReactDOM.render(<GoodMorning name="Matheus" age={10} />, document.getElementById('root'))
+ReactDOM.render(
+    <div>
+        <Multi.GoodAfternoon name="Matheus" />
+        <GoodNight name="Maria" />
+    </div>
+,document.getElementById('root'))
