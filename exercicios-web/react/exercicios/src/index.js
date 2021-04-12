@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom'
 
 // import First from './componenetes/First'
 // import GoodMorning from './componenetes/GoodMorning'
-import Multi, { GoodNight} from './componenetes/Multiples'
+// import Multi, { GoodNight} from './componenetes/Multiples'
+import Greeting from './componenetes/Greeting'
 
 ReactDOM.render(
     <div>
-        <Multi.GoodAfternoon name="Matheus" />
-        <GoodNight name="Maria" />
+        <Greeting type="Bom dia" name="João"/>
     </div>
 ,document.getElementById('root'))
