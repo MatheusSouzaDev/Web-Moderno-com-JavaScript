@@ -21,12 +21,36 @@ export default class Calculator extends Component {
     this.setOperation = this.setOperation.bind(this);
     this.addDigit = this.addDigit.bind(this);
   }
+
   clearMemory() {
     this.setState({ ...initialState });
   }
 
   setOperation(operation) {
-    console.log("operation");
+    if (this.state.current === 0) {
+      this.setState({
+        operation,
+        current: 1,
+        clearDisplay: true,
+      });
+    } else {
+      const equals = operation === "=";
+      const currentOperation = this.state.operation;
+
+      const values = [...this.state.values];
+      values[0] = this.calculate(values[0], currentOperation, values[1]);
+      values[1] = 0;
+
+      let isInvalidNumber = !Number.isFinite(values[0]);
+
+      this.setState({
+        displayValue: values[0],
+        operation: equals || isInvalidNumber ? null : operation,
+        current: equals || isInvalidNumber ? 0 : 1,
+        clearDisplay: !equals || isInvalidNumber,
+        values,
+      });
+    }
   }
 
   addDigit(n) {
@@ -46,7 +70,19 @@ export default class Calculator extends Component {
       const values = [...this.state.values];
       values[i] = newValue;
       this.setState({ values });
-      console.log(values);
+    }
+  }
+
+  calculate(x, op, y) {
+    switch (op) {
+      case "+":
+        return x + y;
+      case "-":
+        return x - y;
+      case "*":
+        return x * y;
+      case "/":
+        return x / y;
     }
   }
 
