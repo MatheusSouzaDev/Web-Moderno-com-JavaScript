@@ -2,7 +2,7 @@ import "./Main.css";
 import React from "react";
 import Header from "./Header";
 
-export default (props) => (
+const main = (props) => (
   <React.Fragment>
     <Header {...props} />
     <main className="content container-fluid">
@@ -12,3 +12,5 @@ export default (props) => (
     </main>
   </React.Fragment>
 );
+
+export default main

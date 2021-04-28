@@ -1,7 +1,7 @@
 import "./Footer.css";
 import React from "react";
 
-export default (props) => (
+const footer = (props) => (
   <footer className="footer">
     <span>
       Desenvolvido com <i className="fa fa-heart text-danger"></i> por{" "}
@@ -11,3 +11,5 @@ export default (props) => (
     </span>
   </footer>
 );
+
+export default footer
